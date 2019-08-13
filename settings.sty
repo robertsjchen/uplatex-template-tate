@@ -1,0 +1,103 @@
+% settings.sty by SteveCheung 2019/03/29
+% Copyright (C) 2019 by SteveCheung, All rights reserved.
+%
+%  縦書補充設定
+%
+%  作成者: 子康    dongfang0571@gmail.com
+%
+%用作 倚天屠龍記.tex
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\ProvidesPackage{settings}[2019/05/12 v1.0a SteveCheung]
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\usepackage[utf8]{inputenc}
+%\usepackage[uplatex,deluxe]{otf} 
+\usepackage{pxrubrica}
+
+
+%%顔色設定
+\usepackage{color}
+\usepackage{xcolor}
+\newcommand{\black}[1]{\textcolor{black}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\紅}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\yellow}[1]{\textcolor{yellow}{#1}}
+\newcommand{\cyan}[1]{\textcolor{cyan}{#1}}
+\newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
+\newcommand{\pink}[1]{\textcolor{pink}{#1}}
+\newcommand{\purple}[1]{\textcolor{purple}{#1}}
+\newcommand{\orange}[1]{\textcolor{orange}{#1}}
+\newcommand{\lime}[1]{\textcolor{lime}{#1}}
+\newcommand{\violet}[1]{\textcolor{violet}{#1}}
+\newcommand{\olive}[1]{\textcolor{olive}{#1}}
+\newcommand{\lightgray}[1]{\textcolor{lightgray}{#1}}
+\newcommand{\teal}[1]{\textcolor{teal}{#1}}
+\newcommand{\gray}[1]{\textcolor{gray}{#1}}
+\newcommand{\brown}[1]{\textcolor{brown}{#1}}
+
+% 図の読みこみのために
+\usepackage[dvipdfmx]{graphicx}
+\DeclareGraphicsExtensions{.eps,.jpg,.png,.pdf}
+\usepackage{float}   %使用浮動體
+\usepackage{booktabs} % 表の横罫線
+
+
+%%%% PDF 作者信息及超鏈接設定
+\usepackage[dvipdfmx,
+    pdfdirection=R2L, % 開く方向%從右往左翻頁 當使用橫板系統時，關閉此選項
+    colorlinks=true,   %設置超鏈接的顔色
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+    citecolor=black,
+    bookmarks=true, % PDFにしおりをつける
+    bookmarksnumbered=true, % しおりに節番号などをつける
+    bookmarksopen=true, %展開所有層級
+  ]{hyperref}
+\hypersetup{ %
+    pdftitle= {倚天屠龍記} , % PDFのタイトル
+    pdfauthor= {子　康} , % PDFの作成者
+    pdfkeywords = {upTeX,upLaTeX,Unicode,CJK},  %関鍵詞
+    pdfsubject = {Chinese Novel },    % 主題
+    pdfcreator  = {up\LaTeX\ with package  hyperref },    %工具
+%    pdfproducer = {dvipdfmx(20180506)},   %製作軟件
+}
+
+% PDFにしたときのしおりの文字化けを防ぐ  % 使書箋支持Unicode-CJK 内碼
+\usepackage{pxjahyper}
+
+
+
+\makeatletter
+ \def\@textbottom{\vskip \z@ \@plus 1pt}
+ \let\@texttop\relax
+%自定義的字號
+\renewcommand{\bthuge}{\@setfontsize\bthuge{60}{72}}
+\renewcommand{\btlarge}{\@setfontsize\btlarge{48}{60}}
+\renewcommand{\tlarge}{\@setfontsize\tlarge{36}{48}}
+\renewcommand{\ularge}{\@setfontsize\ularge{30}{48}}
+%% 定義正文字號
+\renewcommand{\normalsize}{% formerly \normalsize=12pt@18pt
+    \@setfontsize\normalsize{14.4pt}{20}%
+  \abovedisplayskip 6\p@ \@plus2\p@ \@minus5\p@
+  \abovedisplayshortskip \z@ \@plus3\p@
+  \belowdisplayshortskip 6\p@ \@plus3\p@ \@minus3\p@
+   \belowdisplayskip \abovedisplayskip
+   \let\@listi\@listI}
+
+
+
+\usepackage{silence}
+\WarningFilter{hyperref}{Size substitutions}
+\WarningFilter{latex}{Token not allowed}
+\WarningsOff*
+
+\def\BookmarkDriverDefault{dvipdfmx}
+\usepackage{bookmark}
+
+\endinput

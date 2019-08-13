@@ -1,0 +1,208 @@
+\RequirePackage{multicol} %多欄
+\RequirePackage{type1cm} %字體
+\RequirePackage[uplatex,deluxe,jis2004]{otf} %字體包
+\RequirePackage{plext} % 為pLaTeX打補丁
+
+\documentclass[uplatex,10pt,openleft,b5paper]{utbook}
+
+%% フォント関連
+\usepackage[T1]{fontenc} % フォントでT1を使うこと
+\usepackage{textcomp} % フォントでTS1を使うこと
+\usepackage[utf8]{inputenc} % ファイルがUTF8であること
+
+
+%% 図表など
+% 図の読みこみのために
+\usepackage[dvipdfmx, hiresbb]{graphicx, xcolor}
+\usepackage{booktabs} % 表の横罫線
+
+%% 囲み枠
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable} % ページをまたいで分割できるように
+
+%% misc
+\usepackage{okumacro} % 圏点などのために
+\usepackage{pxrubrica} % ルビをつける（okumacroのrubyは使わない）
+
+%% 目次の設定
+\setcounter{tocdepth}{1} % sectionまでを目次に
+
+\makeatletter
+\renewcommand{\thechapter}{\@Kanji{\@arabic\c@chapter}}
+ \def\@textbottom{\vskip \z@ \@plus 1pt}
+ \let\@texttop\relax
+%自定義的字號
+\newcommand{\bthuge}{\@setfontsize\bthuge{60}{72}}
+\newcommand{\btlarge}{\@setfontsize\btlarge{48}{60}}
+\newcommand{\tlarge}{\@setfontsize\tlarge{36}{48}}
+\newcommand{\ularge}{\@setfontsize\ularge{30}{48}}
+%% 定義正文字號
+\renewcommand{\normalsize}{% formerly \normalsize=12pt@18pt
+    \@setfontsize\normalsize{14.4pt}{20}%
+  \abovedisplayskip 6\p@ \@plus2\p@ \@minus5\p@
+  \abovedisplayshortskip \z@ \@plus3\p@
+  \belowdisplayshortskip 6\p@ \@plus3\p@ \@minus3\p@
+   \belowdisplayskip \abovedisplayskip
+   \let\@listi\@listI}
+
+\renewcommand*{\l@chapter}[2]{%
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \addvspace{1.0em \@plus\p@}%
+    \begingroup
+      \parindent\z@ \rightskip\@pnumwidth \parfillskip-\rightskip
+      \leavevmode\bfseries
+      \setlength\@lnumwidth{6zw}%
+      \advance\leftskip\@lnumwidth \hskip-\leftskip
+      #1\nobreak\hfil\nobreak\hb@xt@\@pnumwidth{\hss#2}\par
+      \penalty\@highpenalty
+    \endgroup
+  \fi}
+
+\renewcommand{\postchaptername}{回}
+\makeatother
+
+\usepackage{silence}
+\WarningFilter{hyperref}{Size substitutions}
+\WarningFilter{latex}{Token not allowed}
+\WarningsOff*
+
+% 页面调整
+%\setlength{\voffset}{-3 mm}
+\setlength{\hoffset}{0 mm}
+\setlength{\oddsidemargin}{-10 mm}  %奇数修正數據
+\setlength{\evensidemargin}{-3 mm}   %偶数修正數據
+\setlength{\textwidth}{205mm}
+\setlength{\textheight}{144 mm}
+\setlength{\columnsep}{8 mm}
+
+\title{倚天屠龍記}
+\author{金\hskip1zw庸}
+\title{}
+\date{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ubzjlreq-h/v %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareFontFamily{JY2}{ubzjlreq}{}
+\DeclareFontFamily{JT2}{ubzjlreq}{}
+
+\DeclareFontShape{JY2}{ubzjlreq}{m}{n}{<->s*[0.924690]ubzjlreq}{}
+\DeclareFontShape{JY2}{ubzjlreq}{m}{it}{<->ssub*ubzjlreq/m/n}{}
+\DeclareFontShape{JY2}{ubzjlreq}{m}{sl}{<->ssub*ubzjlreq/m/n}{}
+\DeclareFontShape{JY2}{ubzjlreq}{m}{sc}{<->ssub*ubzjlreq/m/n}{}
+
+\DeclareFontShape{JT2}{ubzjlreq}{m}{n}{<->s*[0.924690]ubzjlreq-v}{}
+\DeclareFontShape{JT2}{ubzjlreq}{m}{it}{<->ssub*ubzjlreq/m/n}{}
+\DeclareFontShape{JT2}{ubzjlreq}{m}{sl}{<->ssub*ubzjlreq/m/n}{}
+\DeclareFontShape{JT2}{ubzjlreq}{m}{sc}{<->ssub*ubzjlreq/m/n}{}
+
+\DeclareRobustCommand\ubzjlreq{\kanjifamily{ubzjlreq}\selectfont}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ubzjlreq-h/v %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ubzjlreqg-h/v %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareFontFamily{JY2}{ubzjlreqg}{}
+\DeclareFontFamily{JT2}{ubzjlreqg}{}
+
+\DeclareFontShape{JY2}{ubzjlreqg}{m}{n}{<->s*[0.924690]ubzjlreqg}{}
+\DeclareFontShape{JY2}{ubzjlreqg}{m}{it}{<->ssub*ubzjlreqg/m/n}{}
+\DeclareFontShape{JY2}{ubzjlreqg}{m}{sl}{<->ssub*ubzjlreqg/m/n}{}
+\DeclareFontShape{JY2}{ubzjlreqg}{m}{sc}{<->ssub*ubzjlreqg/m/n}{}
+
+\DeclareFontShape{JT2}{ubzjlreqg}{m}{n}{<->s*[0.924690]ubzjlreqg-v}{}
+\DeclareFontShape{JT2}{ubzjlreqg}{m}{it}{<->ssub*ubzjlreqg/m/n}{}
+\DeclareFontShape{JT2}{ubzjlreqg}{m}{sl}{<->ssub*ubzjlreqg/m/n}{}
+\DeclareFontShape{JT2}{ubzjlreqg}{m}{sc}{<->ssub*ubzjlreqg/m/n}{}
+
+\DeclareRobustCommand\ubzjlreqg{\kanjifamily{ubzjlreqg}\selectfont}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ubzjlreqg-h/v %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 簡體中文 adobe 細宋體 & adobe 黑體
+\DeclareFontFamily{JY2}{upstsl}{}
+\DeclareFontFamily{JT2}{upstsl}{}
+
+\DeclareFontShape{JY2}{upstsl}{m}{n}{<->s*[0.924690]upstsl-h}{}
+\DeclareFontShape{JY2}{upstsl}{m}{it}{<->ssub*upstsl/m/n}{}
+\DeclareFontShape{JY2}{upstsl}{m}{sl}{<->ssub*upstsl/m/n}{}
+\DeclareFontShape{JY2}{upstsl}{m}{sc}{<->ssub*upstsl/m/n}{}
+
+\DeclareFontShape{JT2}{upstsl}{m}{n}{<->s*[0.924690]upstsl-v}{}
+\DeclareFontShape{JT2}{upstsl}{m}{it}{<->ssub*upstsl/m/n}{}
+\DeclareFontShape{JT2}{upstsl}{m}{sl}{<->ssub*upstsl/m/n}{}
+\DeclareFontShape{JT2}{upstsl}{m}{sc}{<->ssub*upstsl/m/n}{}
+
+\DeclareRobustCommand\upstsl{\kanjifamily{upstsl}\selectfont}
+
+\AtBeginDvi{%
+  \special{pdf:mapline upstsl-h	unicode		SourceHanSerifK-Medium.otf}
+  \special{pdf:mapline upstsl-v	unicode		SourceHanSerifK-Medium.otf	-w	1}
+}
+
+\newcommand{\footnotefon}{\ubzjlreq}
+\def\dash{{\leavevmode\kern1mm\raise0.1zh\hbox{-----}\kern1mm}}
+\def\qyh{\leavevmode\kern -0.5zw\hbox{「}}
+\prebreakpenalty`︰=10000
+\kcatcode"FE30=18
+
+%%%% PDF 作者信息及超鏈接設定
+\usepackage[dvipdfmx,
+    pdfdirection=R2L, % 開く方向%從右往左翻頁 當使用橫板系統時，關閉此選項
+    colorlinks=true,   %設置超鏈接的顔色
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+    citecolor=black,
+    bookmarks=true, % PDFにしおりをつける
+    bookmarksnumbered=true, % しおりに節番号などをつける
+    bookmarksopen=true, %展開所有層級
+  ]{hyperref}
+\hypersetup{ %
+    pdftitle= {倚天屠龍記} , % PDFのタイトル
+    pdfauthor= {子　康} , % PDFの作成者
+    pdfkeywords = {upTeX,upLaTeX,Unicode,CJK},  %関鍵詞
+    pdfsubject = {Chinese Novel },    % 主題
+    pdfcreator  = {up\LaTeX\ with package  hyperref },    %工具
+%    pdfproducer = {dvipdfmx(20180506)},   %製作軟件
+}
+
+% PDFにしたときのしおりの文字化けを防ぐ  % 使書箋支持Unicode-CJK 内碼
+\usepackage{pxjahyper}
+% hyperref を使っているときに
+% 目次でのページ番号の向きを適切にする
+\makeatletter
+\def\contentsline#1#2#3#4{\csname l@#1\endcsname{\hyper@linkstart{link}{#4}{#2}\hyper@linkend}{\rensuji{#3}}}
+\makeatother
+
+\begin{document}
+
+%% 封面
+\vspace*{160pt}
+\thispagestyle{empty}
+	{\btlarge \noindent\hskip2zw\mcfamily\bfseries%
+	\hbox{倚天屠龍記\CID{119}連載版}}\\%正標題
+
+\vspace*{90pt}
+	{\tlarge \mcfamily \hfill 金\hskip1zw庸　　\\} %% 作者
+	\vskip 1.5em%
+\cleardoublepage
+
+%% 目录
+\setlength{\columnsep}{20 mm}
+\setlength{\parskip}{0 mm}
+\pagestyle{plain}
+\begin{multicols}{2}
+\tableofcontents
+\end{multicols}
+\cleardoublepage
+
+% 正文
+%\yoko\adjustbaseline
+\setlength{\parindent}{2.88\Cwd}
+\setlength{\columnsep}{8 mm}
+\pagestyle{headings}
+\begin{multicols}{2}
+\setcounter{page}{1}
+\ubzjlreq
+\input{5}
+\end{multicols}
+
+\input{endpage-h.tex}
+
+\end{document}
+

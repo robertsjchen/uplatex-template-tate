@@ -1,0 +1,101 @@
+\RequirePackage{plext}					%	縱組顓用
+\RequirePackage{plautopatch}			%	為 pLaTeX 打補丁
+
+% upLaTeX document
+\documentclass[pdfm]{sz}
+% 載入自定義字體設置
+\usepackage{settings}
+% 页面调整
+%\setlength{\voffset}{-3 mm}
+\setlength{\hoffset}{5 mm}
+\setlength{\oddsidemargin}{ -5 mm}  %奇数修正數據
+\setlength{\evensidemargin}{5 mm}   %偶数修正數據
+\setlength{\textwidth}{255mm}
+\setlength{\textheight}{150 mm}
+\setlength{\columnsep}{10 mm}
+
+\maintitle{倚天屠龍記}
+\subtitle{連載版}
+\author{金\hskip1zw庸}
+\authorfn{連載版}
+
+\title{}
+\date{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ubzjlreq-h/v %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareFontFamily{JY2}{ubzjlreq}{}
+\DeclareFontFamily{JT2}{ubzjlreq}{}
+
+\DeclareFontShape{JY2}{ubzjlreq}{m}{n}{<->s*[0.924690]ubzjlreq}{}
+\DeclareFontShape{JY2}{ubzjlreq}{m}{it}{<->ssub*ubzjlreq/m/n}{}
+\DeclareFontShape{JY2}{ubzjlreq}{m}{sl}{<->ssub*ubzjlreq/m/n}{}
+\DeclareFontShape{JY2}{ubzjlreq}{m}{sc}{<->ssub*ubzjlreq/m/n}{}
+
+\DeclareFontShape{JT2}{ubzjlreq}{m}{n}{<->s*[0.924690]ubzjlreq-v}{}
+\DeclareFontShape{JT2}{ubzjlreq}{m}{it}{<->ssub*ubzjlreq/m/n}{}
+\DeclareFontShape{JT2}{ubzjlreq}{m}{sl}{<->ssub*ubzjlreq/m/n}{}
+\DeclareFontShape{JT2}{ubzjlreq}{m}{sc}{<->ssub*ubzjlreq/m/n}{}
+
+\DeclareRobustCommand\ubzjlreq{\kanjifamily{ubzjlreq}\selectfont}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ubzjlreq-h/v %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ubzjlreqg-h/v %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareFontFamily{JY2}{ubzjlreqg}{}
+\DeclareFontFamily{JT2}{ubzjlreqg}{}
+
+\DeclareFontShape{JY2}{ubzjlreqg}{m}{n}{<->s*[0.924690]ubzjlreqg}{}
+\DeclareFontShape{JY2}{ubzjlreqg}{m}{it}{<->ssub*ubzjlreqg/m/n}{}
+\DeclareFontShape{JY2}{ubzjlreqg}{m}{sl}{<->ssub*ubzjlreqg/m/n}{}
+\DeclareFontShape{JY2}{ubzjlreqg}{m}{sc}{<->ssub*ubzjlreqg/m/n}{}
+
+\DeclareFontShape{JT2}{ubzjlreqg}{m}{n}{<->s*[0.924690]ubzjlreqg-v}{}
+\DeclareFontShape{JT2}{ubzjlreqg}{m}{it}{<->ssub*ubzjlreqg/m/n}{}
+\DeclareFontShape{JT2}{ubzjlreqg}{m}{sl}{<->ssub*ubzjlreqg/m/n}{}
+\DeclareFontShape{JT2}{ubzjlreqg}{m}{sc}{<->ssub*ubzjlreqg/m/n}{}
+
+\DeclareRobustCommand\ubzjlreqg{\kanjifamily{ubzjlreqg}\selectfont}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ubzjlreqg-h/v %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\footnotefon}{\ubzjlreq}
+
+\prebreakpenalty`︰=10000
+\kcatcode"FE30=18
+
+\begin{document}
+
+%% 封面
+\vspace*{160pt}
+\thispagestyle{empty}
+	{\btlarge \noindent\hskip2zw\mcfamily\bfseries%
+	\hbox{倚天屠龍記\CID{119}連載版}}\\%正標題
+
+\vspace*{90pt}
+	{\tlarge \mcfamily \hfill 金\hskip1zw庸　　\\} %% 作者
+	\vskip 1.5em%
+\cleardoublepage
+
+%% 目录
+\setlength{\columnsep}{25 mm}
+\setlength{\parskip}{0 mm}
+\pagestyle{my}
+\begin{multicols}{2}
+\tableofcontents
+\end{multicols}
+\cleardoublepage
+
+% 正文
+%\yoko\adjustbaseline
+\setlength{\parindent}{2.88\Cwd}
+\setlength{\columnsep}{10 mm}
+\pagestyle{plain}
+\begin{multicols}{2}
+\setcounter{page}{1}
+\ubzjlreq
+\input{5}
+\end{multicols}
+
+\input{endpage-h.tex}
+
+\end{document}
+
+
