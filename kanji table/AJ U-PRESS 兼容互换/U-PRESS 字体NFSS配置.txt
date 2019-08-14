@@ -1,0 +1,20 @@
+\DeclareFontFamily{JY2}{upstht}{}
+\DeclareFontFamily{JT2}{upstht}{}
+
+\DeclareFontShape{JY2}{upstht}{m}{n}{<->s*[0.924690]upstht-h}{}
+\DeclareFontShape{JT2}{upstht}{m}{it}{<->ssub*upstht/m/n}{}
+\DeclareFontShape{JT2}{upstht}{m}{sl}{<->ssub*upstht/m/n}{}
+\DeclareFontShape{JT2}{upstht}{m}{sc}{<->ssub*upstht/m/n}{}
+
+\DeclareFontShape{JT2}{upstht}{m}{n}{<->s*[0.924690]upstht-v}{}
+\DeclareFontShape{JT2}{upstht}{m}{it}{<->ssub*upstht/m/n}{}
+\DeclareFontShape{JT2}{upstht}{m}{sl}{<->ssub*upstht/m/n}{}
+\DeclareFontShape{JT2}{upstht}{m}{sc}{<->ssub*upstht/m/n}{}
+
+\DeclareRobustCommand\upstht{\kanjifamily{upstht}\selectfont}
+
+% dvipdfmx special の発行
+\AtBeginDvi{%
+  \special{pdf:mapline upstht-h      unicode      U-OTF-RyuminUpr-Regular.otf}
+  \special{pdf:mapline upstht-v      unicode      U-OTF-RyuminUpr-Regular.otf	-w	1}
+}
